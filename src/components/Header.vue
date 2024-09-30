@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useUserStore } from '@/stores/user.store';
+import { useAuthStore } from '@/store/auth.store';
 
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
 // async function logoutFromAccount(): Promise<void> {
 //   await logout();
 // }
 
-const user = ref(userStore.getUser);
+// const user = ref(userStore.getUser);
 
-console.log(user.value);
+// console.log(user.value);
 </script>
 
 <template>
   <header>
-    <button v-if="user.email" @click="userStore.logout">logout</button>
+    <button v-if="authStore.isAuth" @click="authStore.logout">logout</button>
   </header>
 </template>

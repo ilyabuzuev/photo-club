@@ -36,7 +36,7 @@ const rules = {
 function validate() {
   if (model.value?.length < rules[props.type].min || model.value?.length > rules[props.type].max) {
     setError(
-      `Поле '${props.label}' должно содержать от ${rules[props.type].min} до ${rules[props.type].max} символов`
+      `Данное поле должно содержать от ${rules[props.type].min} до ${rules[props.type].max} символов`
     );
   } else {
     clearError();

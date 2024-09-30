@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { v4 as uuidv4 } from 'uuid';
 import { Query, ID, AppwriteException } from 'appwrite';
 import { account, client, database } from '@/utils/appwrite';
 import { register } from '@/utils/register';
 import { login } from '@/utils/login';
-import { useUserStore } from '@/stores/user.store';
+import { useAuthStore } from '@/store/auth.store';
 import Input from '@/components/Input.vue';
 import Button from '@/components/Button.vue';
 
@@ -15,7 +15,7 @@ const password = ref('');
 const passwordConfirm = ref('');
 
 const router = useRouter();
-const userStore = useUserStore();
+const authStore = useAuthStore();
 // const promise = account.create(ID.unique(), 'test1@mail.com', '12345678');
 
 // promise.then(function (response) {
@@ -26,10 +26,8 @@ const userStore = useUserStore();
 
 // database.listDocuments('', ,)
 
-
-
 async function registerAccount() {
-  userStore.register({ id: ID.unique(), email: email.value, password: password.value });
+  authStore.register({ id: ID.unique(), email: email.value, password: password.value });
 }
 </script>
 

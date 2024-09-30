@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/user.store';
 import { Client, Account, Databases } from 'appwrite';
-
-const userStore = useUserStore();
-
-console.log(userStore.getUser);
-
 </script>
 
 <template>

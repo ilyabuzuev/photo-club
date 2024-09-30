@@ -1,13 +1,27 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
-import { useUserStore } from './stores/user.store';
+import { useAuthStore } from '@/store/auth.store';
 import Header from '@/components/Header.vue';
+import { account } from './utils/appwrite';
 
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
-onMounted(() => {
-  userStore.init();
+onMounted(async () => {
+  try {
+    const user = await account.get();
+
+    console.log(user);
+    
+
+    if (user) {
+      authStore.set(user);
+    }
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log('finally block');
+  }
 });
 </script>
 
