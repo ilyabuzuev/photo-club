@@ -1,11 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { onMounted } from 'vue';
+import { RouterView } from 'vue-router';
+import { useUserStore } from './stores/user.store';
+import Header from '@/components/Header.vue';
+
+const userStore = useUserStore();
+
+onMounted(() => {
+  userStore.init();
+});
 </script>
 
 <template>
-  <div class="main bg-gray-100">
+  <Header />
+  <main class="main bg-gray-100">
     <RouterView />
-  </div>
+  </main>
 </template>
 
 <style scoped>
