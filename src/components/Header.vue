@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useAuthStore } from '@/store/auth.store';
 import Container from '@/components/Container.vue';
 import Logo from '@/components/Logo.vue';
 import Navigation from '@/components/Navigation.vue';
+import Profile from '@/components/Profile.vue';
 
-const authStore = useAuthStore();
 </script>
 
 <template>
@@ -15,18 +14,7 @@ const authStore = useAuthStore();
         <div class="flex justify-between items-center gap-10 p-4 bg-white rounded-lg shadow-sm">
           <Logo />
           <Navigation />
-          <div>
-            <button
-              v-if="authStore.isAuth"
-              @click="authStore.logout"
-              class="hover:text-red-500 ease-out duration-200"
-            >
-              Выйти
-            </button>
-            <RouterLink to="/login" class="hover:text-red-500 ease-out duration-200">
-              Войти
-            </RouterLink>
-          </div>
+          <Profile />
         </div>
       </div>
     </Container>

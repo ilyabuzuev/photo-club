@@ -3,8 +3,8 @@ import NavigationItem from '@/components/NavigationItem.vue';
 
 const navigationItems = [
   {
-    title: 'Фотографы',
-    href: '/photographers'
+    title: 'Участники',
+    href: '/members'
   }
 ];
 </script>
