@@ -48,7 +48,7 @@ export const useAuthStore = defineStore('authStore', {
 
     async register({ id, email, password, name }: RegisterObject) {
       await account.create(id, email, password);
-      await this.login({ email, password });
+      // await this.login({ email, password });
     },
 
     async login({ email, password }: LoginObject) {

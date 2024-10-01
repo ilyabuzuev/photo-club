@@ -12,11 +12,8 @@ onMounted(async () => {
     const user = await account.get();
 
     console.log(user);
-    
 
-    if (user) {
-      authStore.set(user);
-    }
+    if (user) authStore.set(user);
   } catch (error) {
     console.log(error);
   } finally {
@@ -26,14 +23,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Header />
-  <main class="main bg-gray-100">
+  <div class="h-dvh">
+    <!-- <Header /> -->
     <RouterView />
-  </main>
+  </div>
 </template>
 
 <style scoped>
-.main {
-  min-height: 100dvh;
-}
+
 </style>

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { Client, Account, Databases } from 'appwrite';
+import Header from '@/components/Header.vue';
+import Main from '@/components/Main.vue';
 </script>
 
 <template>
-  <main class="main bg-blue-50">home</main>
+  <Header />
+  <Main>
+    home
+  </Main>
 </template>
