@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { v4 as uuid } from 'uuid';
-import { Query, ID, AppwriteException } from 'appwrite';
-import { account, client, database } from '@/utils/appwrite';
-import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
 import { useAuthStore } from '@/store/auth.store';
 import Input from '@/components/Input.vue';
 import Button from '@/components/Button.vue';
@@ -80,7 +77,7 @@ async function login() {
       <div class="mt-5 text-lg font-medium text-center">
         <span>Ещё нет аккаунта? </span>
         <RouterLink to="/register">
-          <span class="text-gray-700 hover:text-red-500 ease-out duration-200"
+          <span class="text-gray-500 hover:text-red-500 ease-out duration-200"
             >Зарегистрироваться</span
           >
         </RouterLink>
