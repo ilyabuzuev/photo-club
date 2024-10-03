@@ -23,7 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="h-dvh">
+  <div class="grid grid-rows-[max-content_1fr] h-dvh">
     <!-- <Header /> -->
     <RouterView />
   </div>

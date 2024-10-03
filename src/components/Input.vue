@@ -30,6 +30,10 @@ const rules = {
   password: {
     min: 8,
     max: 32
+  },
+  text: {
+    min: 2,
+    max: 28,
   }
 };
 

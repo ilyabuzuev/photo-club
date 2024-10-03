@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router';
 import { v4 as uuid } from 'uuid';
 import { Query, ID, AppwriteException } from 'appwrite';
 import { account, client, database } from '@/utils/appwrite';
+import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
 import { useAuthStore } from '@/store/auth.store';
 import Input from '@/components/Input.vue';
 import Button from '@/components/Button.vue';
