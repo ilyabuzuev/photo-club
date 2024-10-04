@@ -70,9 +70,10 @@ async function login() {
         />
         <Button
           class="py-3 text-2xl text-white bg-zinc-700 rounded-full hover:bg-zinc-600 ease-out duration-200"
-          label="Войти"
           @clickEvent="login"
-        />
+        >
+          Войти
+        </Button>
       </form>
       <div class="mt-5 text-lg font-medium text-center">
         <span>Ещё нет аккаунта? </span>

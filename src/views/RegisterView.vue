@@ -112,7 +112,9 @@ async function login() {
           class="py-4 text-2xl text-white bg-zinc-700 rounded-full hover:bg-zinc-600 ease-out duration-200"
           label="Зарегистрироваться"
           @clickEvent="registerAccount"
-        />
+        >
+          Зарегистрироваться
+        </Button>
       </form>
       <div class="mt-5 text-lg font-medium text-center">
         Уже есть аккаунт?

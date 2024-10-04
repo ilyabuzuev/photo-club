@@ -14,6 +14,7 @@ interface LoginObject {
 }
 
 interface AuthStore {
+  id: string;
   email: string;
   name: string;
   status: boolean;
@@ -22,6 +23,7 @@ interface AuthStore {
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
     user: {
+      id: '',
       email: '',
       name: '',
       status: false
@@ -35,6 +37,10 @@ export const useAuthStore = defineStore('authStore', {
 
     userEmail(): string {
       return this.user.email;
+    },
+
+    userId(): string {
+      return this.user.id;
     }
   },
 
@@ -56,10 +62,11 @@ export const useAuthStore = defineStore('authStore', {
 
       const response = await account.get();
 
-      console.log(response.status);
+      console.log(response);
 
       if (response) {
         this.set({
+          id: response.$id,
           email: response.email,
           name: response.name,
           status: response.status

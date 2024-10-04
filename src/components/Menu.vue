@@ -9,6 +9,7 @@ defineProps<Props>();
 <template>
   <Transition name="fade">
     <div v-if="condition" class="menu">
+      HUESS
       <slot name="content" />
     </div>
   </Transition>

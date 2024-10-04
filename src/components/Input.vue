@@ -10,6 +10,7 @@ interface Props {
   labelPositioning: 'row' | 'col';
   validateRules?: { min: number; max: number };
   isValidate?: boolean;
+  icon?: string;
 }
 
 const model = defineModel<string>();

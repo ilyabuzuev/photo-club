@@ -2,7 +2,6 @@
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
 import { useAuthStore } from '@/store/auth.store';
-import Header from '@/components/Header.vue';
 import { account } from './utils/appwrite';
 
 const authStore = useAuthStore();
