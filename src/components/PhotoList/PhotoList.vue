@@ -4,7 +4,7 @@ import { Query } from 'appwrite';
 import { account, database } from '@/utils/appwrite';
 import { DB_ID, PHOTOS_COLLECTION_ID } from '@/app.constants';
 import { useLoaderStore } from '@/store/loader.store';
-import Loader from '@/components/Loader.vue';
+import Loader from '@/components/Loader/Loader.vue';
 
 interface Props {
   userId: string;
@@ -53,9 +53,7 @@ onMounted(async () => {
         :src="photo.url"
         :alt="photo.description"
       />
-      <div v-else>
-        Фотографии не найдены
-      </div>
+      <div v-else>Фотографии не найдены</div>
     </div>
   </div>
   <Loader v-else />

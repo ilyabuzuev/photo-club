@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { v4 as uuid } from 'uuid';
 import { useAuthStore } from '@/store/auth.store';
-import Input from '@/components/Input.vue';
-import Button from '@/components/Button.vue';
-import Main from '@/components/Main.vue';
-import Logo from '@/components/Logo.vue';
+import Input from '@/components/Input/Input.vue';
+import Button from '@/components/Button/Button.vue';
+import Main from '@/components/Main/Main.vue';
+import Logo from '@/components/Logo/Logo.vue';
 
 const email = ref('');
 const password = ref('');

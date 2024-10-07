@@ -4,9 +4,9 @@ import { database } from '@/utils/appwrite';
 import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
 import { useUsersStore } from '@/store/users.store';
 import type { UsersFromDB } from '@/interfaces/UsersFromDB';
-import Header from '@/components/Header.vue';
-import Main from '@/components/Main.vue';
-import Member from '@/components/Member.vue';
+import Header from '@/components/Header/Header.vue';
+import Main from '@/components/Main/Main.vue';
+import Member from '@/components/Member/Member.vue';
 
 const userStore = useUsersStore();
 

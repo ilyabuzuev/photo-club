@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import Button from '@/components/Button.vue';
+import Button from '@/components/Button/Button.vue';
 
 const menu = ref<HTMLDivElement | null>(null);
 const isMenuOpen = ref(false);

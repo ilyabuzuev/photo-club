@@ -6,12 +6,12 @@ import { DB_ID, PHOTOS_COLLECTION_ID } from '@/app.constants';
 import { useAuthStore } from '@/store/auth.store';
 import { useUsersStore } from '@/store/users.store';
 import { useLoaderStore } from '@/store/loader.store';
-import Header from '@/components/Header.vue';
-import Main from '@/components/Main.vue';
-import Avatar from '@/components/Avatar.vue';
-import Loader from '@/components/Loader.vue';
-import Button from '@/components/Button.vue';
-import PhotoList from '@/components/PhotoList.vue';
+import Header from '@/components/Header/Header.vue';
+import Main from '@/components/Main/Main.vue';
+import Avatar from '@/components/Avatar/Avatar.vue';
+import Loader from '@/components/Loader/Loader.vue';
+import Button from '@/components/Button/Button.vue';
+import PhotoList from '@/components/PhotoList/PhotoList.vue';
 import type { Input } from 'postcss';
 
 interface User {

@@ -6,9 +6,9 @@ import { Query } from 'appwrite';
 import { database, account } from '@/utils/appwrite';
 import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
 import type { UsersFromDB } from '@/interfaces/UsersFromDB';
-import DropdownButton from '@/components/DropdownButton.vue';
-import Loader from '@/components/Loader.vue';
-import Avatar from '@/components/Avatar.vue';
+import DropdownButton from '@/components/DropdownButton/DropdownButton.vue';
+import Loader from '@/components/Loader/Loader.vue';
+import Avatar from '@/components/Avatar/Avatar.vue';
 import { Icon } from '@iconify/vue';
 
 const authStore = useAuthStore();
@@ -75,11 +75,18 @@ onMounted(async () => {
           </div>
           <div class="flex items-center gap-1">
             <Icon icon="ic:round-account-box" width="24" class="text-gray-800" />
-            <RouterLink to="/profile" class="text-lg text-gray-800 hover:text-red-500 ease-out duration-200">Профиль</RouterLink>
+            <RouterLink
+              to="/profile"
+              class="text-lg text-gray-800 hover:text-red-500 ease-out duration-200"
+              >Профиль</RouterLink
+            >
           </div>
           <div class="flex items-center gap-1">
             <Icon icon="ic:round-log-in" width="24" class="text-red-500" />
-            <button @click="authStore.logout" class="text-lg text-red-500 hover:text-gray-600 ease-out duration-200">
+            <button
+              @click="authStore.logout"
+              class="text-lg text-red-500 hover:text-gray-600 ease-out duration-200"
+            >
               Выйти
             </button>
           </div>

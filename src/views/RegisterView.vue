@@ -6,10 +6,10 @@ import { ID } from 'appwrite';
 import { database } from '@/utils/appwrite';
 import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
 import { useAuthStore } from '@/store/auth.store';
-import Input from '@/components/Input.vue';
-import Button from '@/components/Button.vue';
-import Main from '@/components/Main.vue';
-import Logo from '@/components/Logo.vue';
+import Input from '@/components/Input/Input.vue';
+import Button from '@/components/Button/Button.vue';
+import Main from '@/components/Main/Main.vue';
+import Logo from '@/components/Logo/Logo.vue';
 
 const firstname = ref('');
 const lastname = ref('');
@@ -118,7 +118,9 @@ async function login() {
       </form>
       <div class="mt-5 text-lg font-medium text-center">
         Уже есть аккаунт?
-        <RouterLink to="/login" class="text-gray-500 hover:text-red-500 ease-out duration-200">Войти</RouterLink>!
+        <RouterLink to="/login" class="text-gray-500 hover:text-red-500 ease-out duration-200"
+          >Войти</RouterLink
+        >!
       </div>
     </div>
   </Main>
