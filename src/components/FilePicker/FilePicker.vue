@@ -8,7 +8,5 @@ async function getFile() {
 </script>
 
 <template>
-  <div>
-
-  </div>
+  <div></div>
 </template>
