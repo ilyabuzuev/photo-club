@@ -1,0 +1,25 @@
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap')
+@use './_fonts' as *
+
+*,
+*::before,
+*::after 
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  @apply font-normal text-base bg-gray-200
+  font-family: 'RobotoSlab', sans-serif !important
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body > *
+  @apply h-dvh
+
+li
+  @apply list-none
+
+.container
+  @apply m-auto max-w-screen-md
