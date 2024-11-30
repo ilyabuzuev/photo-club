@@ -4,31 +4,31 @@ import Slider from '@/components/slider/Slider.vue';
 
 const photos: IPhoto[] = [
   {
-    src: 'src/assets/images/hero-image1.jpg',
+    src: '/public/images/hero-image1.jpg',
     alt: 'Красивая девчоночка лежит на пледике на природе',
   },
   {
-    src: 'src/assets/images/hero-image2.jpg',
+    src: '/public/images/hero-image2.jpg',
     alt: 'some alt',
   },
   {
-    src: 'src/assets/images/hero-image3.jpg',
+    src: '/public/images/hero-image3.jpg',
     alt: 'some alt',
   },
   {
-    src: 'src/assets/images/hero-image4.jpg',
+    src: '/public/images/hero-image4.jpg',
     alt: 'some alt',
   },
   {
-    src: 'src/assets/images/hero-image5.jpg',
+    src: '/public/images/hero-image5.jpg',
     alt: 'some alt',
   },
   {
-    src: 'src/assets/images/hero-image6.jpg',
+    src: '/public/images/hero-image6.jpg',
     alt: 'some alt',
   },
   {
-    src: 'src/assets/images/hero-image7.jpg',
+    src: '/public/images/hero-image7.jpg',
     alt: 'some alt',
   },
 ];
