@@ -1,21 +1,23 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import Container from '@/components/Container/Container.vue';
-import Logo from '@/components/Logo/Logo.vue';
-import Navigation from '@/components/Navigation/Navigation.vue';
-import Profile from '@/components/Profile/Profile.vue';
+import Logo from '@/components/logo/Logo.vue';
+import Navigation from '@/components/navigation/Navigation.vue';
+import Auth from '@/components/auth/Auth.vue';
 </script>
 
 <template>
-  <header class="bg-gray-100">
-    <Container>
-      <div class="py-4">
-        <div class="flex justify-between items-center gap-10">
-          <Logo />
-          <Navigation />
-          <Profile />
-        </div>
-      </div>
-    </Container>
+  <header class="header">
+    <div class="header__container container xl:max-w-screen-xl">
+      <Logo />
+      <Navigation />
+      <Auth />
+    </div>
   </header>
 </template>
+
+<style lang="sass" scoped>
+.header
+
+  &__container
+    @apply flex items-center justify-between
+</style>

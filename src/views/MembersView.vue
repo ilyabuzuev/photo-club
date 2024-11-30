@@ -1,42 +1,38 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { database } from '@/utils/appwrite';
-import { DB_ID, USERS_COLLECTION_ID } from '@/app.constants';
-import { useUsersStore } from '@/store/users.store';
-import type { UsersFromDB } from '@/interfaces/UsersFromDB';
-import Header from '@/components/Header/Header.vue';
-import Main from '@/components/Main/Main.vue';
-import Member from '@/components/Member/Member.vue';
+import { MembersService } from '@/services/members-service/MembersService';
+import { MemberEntity } from '@/entities/member/MemberEntity';
+import Member from '@/components/member/Member.vue';
 
-const userStore = useUsersStore();
-
-const users = ref<UsersFromDB['documents']>();
-
-async function fetchUsers() {
-  const response: UsersFromDB = await database.listDocuments(DB_ID, USERS_COLLECTION_ID);
-
-  return response;
-}
+const members = ref<MemberEntity[]>();
+const membersService = new MembersService();
 
 onMounted(async () => {
-  // await userStore.setUsers();
-
-  users.value = (await fetchUsers()).documents;
-
-  console.log(users.value);
+  members.value = await membersService.getAll();
 });
 </script>
 
 <template>
-  <Header />
-  <Main>
-    <section class="flex gap-4">
-      <Member
-        v-for="(user, index) in users"
-        :key="index"
-        :firstname="user.firstname"
-        :lastname="user.lastname"
-      />
+  <main>
+    <section class="members">
+      <div class="menbers__container container">
+        <ul class="members__list" v-if="members">
+          <Member
+            v-for="(member, index) in members"
+            :key="index"
+            :id="member.id"
+            :name="member.name"
+            :email="member.email"
+          />
+        </ul>
+      </div>
     </section>
-  </Main>
+  </main>
 </template>
+
+<style lang="sass" scoped>
+.members
+
+  &__list
+    @apply flex gap-3 flex-wrap
+</style>

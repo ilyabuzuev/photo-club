@@ -1,42 +1,26 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-interface Props {
-  firstname: string;
-  lastname: string;
-}
+import type { IMember } from './interfaces/IMember';
 
-defineProps<Props>();
+defineProps<IMember>();
 </script>
 
 <template>
-  <div class="member relative w-64 h-64 rounded-xl overflow-hidden shadow-md z-0 cursor-pointer">
-    <div class="member__photo w-full h-full bg-blue-100"></div>
-    <div class="member__name absolute flex gap-1 text-lg text-white z-10">
-      <div>
-        {{ firstname }}
-      </div>
-      <div>
-        {{ lastname }}
-      </div>
-    </div>
-  </div>
+  <li class="member__item member member_hovered">
+    <router-link class="member__link" :to="`/members/${id}`">
+      <h3 class="member__name">{{ name }}</h3>
+      <h4 class="member__email">{{ email }}</h4>
+    </router-link>
+  </li>
 </template>
 
-<style scoped>
-.member:hover .member__name {
-  top: 85%;
-}
+<style lang="sass" scoped>
+.member
+  @apply overflow-hidden bg-white rounded-md shadow-zinc-300 transition-shadow
 
-.member:hover .member__photo {
-  filter: brightness(0.5);
-}
+  &__link
+    @apply block p-2
 
-.member__photo {
-  transition: filter 0.3s ease;
-}
-
-.member__name {
-  left: 7%;
-  top: 100%;
-  transition: top 0.3s ease;
-}
+  &_hovered
+    @apply hover:shadow-md
 </style>

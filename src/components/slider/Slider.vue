@@ -1,0 +1,132 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<script setup lang="ts">
+import { ref } from 'vue';
+import SliderFrame from './SliderFrame.vue';
+import type { ISliderProps } from './interfaces/ISliderProps';
+import type { IPhoto } from '../photo/interfaces/IPhoto';
+
+const props = defineProps<ISliderProps>();
+
+console.log(props.photos);
+
+const sliderPhotos = ref<IPhoto[]>([]);
+const sliderList = ref<HTMLUListElement>();
+const isSliding = ref(false);
+const currentPhotoIndex = ref(1);
+
+// sliderPhotos.value.push(
+//   props.photos[1],
+//   props.photos[0],
+//   ...props.photos.slice(2),
+// );
+
+sliderPhotos.value.push(
+  props.photos[props.photos.length - 1],
+  ...props.photos.slice(0),
+  props.photos[0],
+);
+
+function nextPhoto() {
+  const pos = parseInt(sliderList.value!.style.left);
+
+  isSliding.value = true;
+
+  sliderList.value!.style.left = `${pos - 360}px`;
+
+  /* setTimeout(() => {
+     sliderList.value!.style.transition = 'none';
+     sliderList.value!.style.left = `-360px`;
+
+     for (let i = 0; i < sliderPhotos.value.length - 1; i++) {
+       const first = sliderPhotos.value[0];
+
+       if (i === sliderPhotos.value.length - 1) {
+         sliderPhotos.value[i] = first;
+       } else {
+         [sliderPhotos.value[i], sliderPhotos.value[i + 1]] = [
+           sliderPhotos.value[i + 1],
+           sliderPhotos.value[i],
+         ];
+       }
+     }
+
+     isSliding.value = false;
+   }, 500);
+  */
+
+  setTimeout(() => {
+    if (currentPhotoIndex.value === sliderPhotos.value.length - 2) {
+      sliderList.value!.style.transition = 'none';
+      sliderList.value!.style.left = `-360px`;
+      isSliding.value = false;
+      currentPhotoIndex.value = 1;
+    } else {
+      isSliding.value = false;
+      currentPhotoIndex.value += 1;
+    }
+  }, 500);
+
+  // isSliding.value = false;
+
+  sliderList.value!.style.transition = 'left .5s ease';
+}
+
+function prevPhoto() {
+  const pos = parseInt(sliderList.value!.style.left);
+
+  isSliding.value = true;
+
+  sliderList.value!.style.left = `${pos + 360}px`;
+
+  setTimeout(() => {
+    if (currentPhotoIndex.value === 1) {
+      sliderList.value!.style.transition = 'none';
+      sliderList.value!.style.left = `-${(sliderPhotos.value.length - 2) * 360}px`;
+      isSliding.value = false;
+      currentPhotoIndex.value = sliderPhotos.value.length - 2;
+    } else {
+      isSliding.value = false;
+      currentPhotoIndex.value -= 1;
+    }
+  }, 500);
+
+  sliderList.value!.style.transition = 'left .5s ease';
+}
+
+// setInterval(() => {
+//   nextPhoto();
+// }, 1000);
+</script>
+
+<template>
+  <div class="slider">
+    <button @click="prevPhoto" :disabled="isSliding">prev</button>
+    <div class="slider__frames">
+      <ul
+        class="slider__list"
+        ref="sliderList"
+        :style="{ left: '-360px', transition: 'left .5s ease' }"
+      >
+        <SliderFrame
+          v-for="(photo, index) in sliderPhotos"
+          :key="index"
+          :photo="photo"
+          :size="photosSize"
+        />
+      </ul>
+    </div>
+    <button @click="nextPhoto" :disabled="isSliding">next</button>
+  </div>
+</template>
+
+<style lang="sass" scoped>
+.slider
+  @apply flex gap-4
+
+  &__frames
+    @apply overflow-hidden
+
+  &__list
+    @apply relative flex
+    width: 360px // ширина слайдера (к-во превью кадров)
+</style>

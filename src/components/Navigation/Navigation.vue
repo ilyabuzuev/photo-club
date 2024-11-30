@@ -1,23 +1,24 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import NavigationItem from '@/components/NavigationItem.vue';
+import { navigationConfig } from '@/config/navigation/navigation.config';
+import type { INavigationItem } from './interfaces/INavigationItem';
+import NavigationItem from './NavigationItem.vue';
 
-const navigationItems = [
-  {
-    title: 'Участники',
-    href: '/members'
-  }
-];
+const navigationItems: INavigationItem[] = navigationConfig.items;
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <NavigationItem
-        v-for="(item, index) in navigationItems"
-        :key="index"
-        :title="item.title"
-        :href="item.href"
-      />
-    </ul>
+  <nav class="navigation">
+    <NavigationItem
+      v-for="(item, index) in navigationItems"
+      :key="index"
+      :label="item.label"
+      :href="item.href"
+    />
   </nav>
 </template>
+
+<style lang="sass" scoped>
+.navigation
+  @apply flex gap-10
+</style>
