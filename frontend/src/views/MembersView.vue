@@ -14,6 +14,7 @@ onMounted(async () => {
 
 <template>
   <main>
+    <div>members view</div>
     <section class="members">
       <div class="menbers__container container">
         <ul class="members__list" v-if="members">

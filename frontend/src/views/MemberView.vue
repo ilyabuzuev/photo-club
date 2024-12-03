@@ -15,6 +15,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <div>member view</div>
   <main v-if="member">
     <div class="container">
       <Member :id="member.id" :name="member.name" :email="member.email" />

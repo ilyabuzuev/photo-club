@@ -2,7 +2,9 @@
 FROM node:22.11.0-alpine3.20 AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install
+#RUN npm config set registry https://registry.npmmirror.com/
+RUN npm install --verbose
+#RUN npm install
 COPY . .
 RUN npm run build-only
 
