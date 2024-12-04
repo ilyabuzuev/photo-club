@@ -24,6 +24,8 @@ jobs:
           cp -r Dockerfile ../frontend-dist
 
       - name: Install dependencies and build backend
+        env:
+          DATABASE_URL: postgresql://admin:admin@db:5432/photoclub
         run: |
           cd backend
           npm install
@@ -45,7 +47,7 @@ jobs:
           # ls
           # cd ../
           # ls
-          
+
 
           # Обновить код с ветки main
           # git pull origin main
