@@ -33,7 +33,7 @@ jobs:
       - name: Deploy application with Docker Compose
         run: |
           # Перейти в директорию с проектом
-          # pwd
+          pwd
           # cd frontend-dist
           # ls
           # cd ../
