@@ -24,14 +24,11 @@ jobs:
           cp -r Dockerfile ../frontend-dist
 
       - name: Install dependencies and build backend
-        env:
-          DATABASE_URL: postgresql://admin:admin@db:5432/photoclub
         run: |
           cd backend
           npm install
           npx prisma generate
           npm run build
-          npx prisma migrate deploy
           # Скопировать готовые файлы для использования в Dockerfile
           cp -r dist ../backend-dist
           cp -r Dockerfile ../backend-dist
