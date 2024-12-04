@@ -19,7 +19,8 @@ jobs:
           npm install
           npm run build-only
           # Скопировать собранные файлы для использования в Dockerfile
-          cp -r dist ../frontend-dist
+          cp -r dist ../frontend-dist/
+          cp -r node_modules ../frontend-dist
           cp -r nginx.conf ../frontend-dist
           cp -r Dockerfile ../frontend-dist
 
@@ -31,6 +32,7 @@ jobs:
           npm run build
           # Скопировать готовые файлы для использования в Dockerfile
           cp -r dist ../backend-dist
+          cp -r prisma ../backend-dis
           cp -r Dockerfile ../backend-dist
 
       - name: Deploy application with Docker Compose
