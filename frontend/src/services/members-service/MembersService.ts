@@ -1,11 +1,11 @@
-import { API } from '@/api/API';
+import { api } from '@/api/API';
 import { membersMapper } from '@/mappers/MembersMapper';
 import { memberMapper } from '@/mappers/MemberMapper';
 import type { MembersDTO } from '@/dto/members.dto';
 import type { MemberDTO } from '@/dto/member.dto';
 import type { MemberEntity } from '@/entities/member/MemberEntity';
 
-const api = new API();
+// const api = new API();
 
 export class MembersService {
   private static URLs = {

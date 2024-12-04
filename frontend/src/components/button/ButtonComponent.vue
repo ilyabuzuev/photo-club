@@ -32,9 +32,9 @@ withDefaults(defineProps<IButtonProps>(), {
   &_md
     @apply px-4 py-1 rounded-md
 
-.button.button_outlined .button__label
+// .button.button_outlined .button__label
 
-.button.button_flat .button__label
+// .button.button_flat .button__label
 
 .bg_primary
   @apply bg-blue-500
