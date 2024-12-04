@@ -17,7 +17,8 @@ jobs:
         run: |
           pwd
           ls
-          echo "----------------------"
+          cd frontend
+          ls          
           # cd frontend
           # npm install
           # npm run build-only
