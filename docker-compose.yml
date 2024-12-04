@@ -24,6 +24,7 @@ services:
     # dns:
     #   - 8.8.8.8
     #   - 8.8.4.4
+    #
     environment:
       DATABASE_URL: postgres://admin:admin@db:5432/photoclub
     command: >
