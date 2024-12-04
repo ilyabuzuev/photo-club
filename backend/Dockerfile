@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 #RUN npm install
 RUN npm install --verbose
 COPY . .
-ENV DATABASE_URL=postgresql://admin:admin@db:5432/photoclub
+# ENV DATABASE_URL=postgresql://admin:admin@db:5432/photoclub
 RUN npx prisma generate
 #RUN npx prisma migrate deploy
 RUN npm run build
