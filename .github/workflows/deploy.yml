@@ -6,22 +6,43 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: self-hosted # Использует ваш self-hosted runner
+  build-and-deploy:
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy application
+      - name: Install dependencies and build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build-only
+          # Скопировать собранные файлы для использования в Dockerfile
+          cp -r dist ../frontend-dist
+
+      - name: Install dependencies and build backend
+        run: |
+          cd backend
+          npm install
+          npx prisma generate
+          npm run build
+          # Скопировать готовые файлы для использования в Dockerfile
+          cp -r dist ../backend-dist
+
+      - name: Deploy application with Docker Compose
         run: |
           # Перейти в директорию с проектом
+          # cd ../../../
           pwd
-          cd ../home/test
 
           # Обновить код с ветки main
-          git pull origin main
+          # git pull origin main
 
-          # Собрать и запустить Docker-контейнеры
-          #docker-compose down
-          #docker-compose up -d --build
+          # Перенести собранные файлы в нужные места
+          # cp -r frontend-dist/* frontend/dist
+          # cp -r backend-dist/* backend/dist
+
+          # Собрать и запустить контейнеры
+          # docker-compose down
+          # docker-compose up -d --build
