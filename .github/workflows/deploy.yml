@@ -1,0 +1,27 @@
+name: Deploy Application to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted # Использует ваш self-hosted runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy application
+        run: |
+          # Перейти в директорию с проектом
+          pwd
+          cd ../home/test
+
+          # Обновить код с ветки main
+          git pull origin main
+
+          # Собрать и запустить Docker-контейнеры
+          #docker-compose down
+          #docker-compose up -d --build
