@@ -15,31 +15,36 @@ jobs:
 
       - name: Install dependencies and build frontend
         run: |
-          cd frontend
-          npm install
-          npm run build-only
-          # Скопировать собранные файлы для использования в Dockerfile
-          cp -r dist ../frontend-dist
-          cp -r node_modules ../frontend-dist
-          cp -r nginx.conf ../frontend-dist
-          cp -r Dockerfile ../frontend-dist
+          pwd
+          ls
+          echo "----------------------"
+          # cd frontend
+          # npm install
+          # npm run build-only
+          # # Скопировать собранные файлы для использования в Dockerfile
+          # cp -r dist ../frontend-dist
+          # cp -r node_modules ../frontend-dist
+          # cp -r nginx.conf ../frontend-dist
+          # cp -r Dockerfile ../frontend-dist
 
       - name: Install dependencies and build backend
         run: |
-          cd backend
-          npm install
-          npx prisma generate
-          npm run build
-          # Скопировать готовые файлы для использования в Dockerfile
-          #
-          cp -r dist ../backend-dist
-          cp -r prisma ../backend-dis
-          cp -r Dockerfile ../backend-dist
+          pwd
+          ls
+          # cd backend
+          # npm install
+          # npx prisma generate
+          # npm run build
+          # # Скопировать готовые файлы для использования в Dockerfile
+          # #
+          # cp -r dist ../backend-dist
+          # cp -r prisma ../backend-dist
+          # cp -r Dockerfile ../backend-dist
 
       - name: Deploy application with Docker Compose
         run: |
           # Перейти в директорию с проектом
-          pwd
+          # pwd
           # cd frontend-dist
           # ls
           # cd ../
@@ -53,9 +58,9 @@ jobs:
           # git pull origin main
 
           # Перенести собранные файлы в нужные места
-          cp -r frontend-dist/* /home/prj/photoclub/frontend
-          cp -r backend-dist/* /home/prj/photoclub/backend
-          cp -r docker-compose.yml /home/prj/photoclub
+          # cp -r frontend-dist/* /home/prj/photoclub/frontend
+          # cp -r backend-dist/* /home/prj/photoclub/backend
+          # cp -r docker-compose.yml /home/prj/photoclub
 
           # Собрать и запустить контейнеры
           # docker-compose down
