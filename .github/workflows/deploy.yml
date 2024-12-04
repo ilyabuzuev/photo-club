@@ -20,6 +20,8 @@ jobs:
           npm run build-only
           # Скопировать собранные файлы для использования в Dockerfile
           cp -r dist ../frontend-dist
+          cp -r nginx.conf ../frontend-dist
+          cp -r Dockerfile ../frontend-dist
 
       - name: Install dependencies and build backend
         run: |
@@ -27,8 +29,10 @@ jobs:
           npm install
           npx prisma generate
           npm run build
+          npx prisma migrate deploy
           # Скопировать готовые файлы для использования в Dockerfile
           cp -r dist ../backend-dist
+          cp -r Dockerfile ../backend-dist
 
       - name: Deploy application with Docker Compose
         run: |

@@ -30,8 +30,8 @@ services:
       npm run start:prod"
     ports:
       - "3000:3000"
-    environment:
-      DATABASE_URL: postgres://admin:admin@db:5432/photoclub
+    # environment:
+    #   DATABASE_URL: postgres://admin:admin@db:5432/photoclub
     depends_on:
       - db
     networks:

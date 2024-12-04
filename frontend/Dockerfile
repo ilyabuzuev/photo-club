@@ -20,7 +20,7 @@
 FROM nginx:1.26-alpine3.20
 
 # Копируем только собранный фронтенд
-COPY ./dist /usr/share/nginx/html
+COPY . /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Настраиваем веб-сервер

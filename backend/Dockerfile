@@ -20,7 +20,7 @@ WORKDIR /app
 COPY . .
 
 # Настраиваем переменные окружения для подключения к базе данных
-# ENV DATABASE_URL=postgresql://admin:admin@db:5432/photoclub
+ENV DATABASE_URL=postgresql://admin:admin@db:5432/photoclub
 
 # Запускаем приложение
 EXPOSE 3000
