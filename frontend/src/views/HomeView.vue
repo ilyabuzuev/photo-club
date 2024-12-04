@@ -36,6 +36,7 @@ const photos: IPhoto[] = [
 
 <template>
   <main class="main">
+    home
     <section class="hero">
       <div class="hero__container">
         <!-- <div class="hero__slider">
