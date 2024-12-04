@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { IPhoto } from '@/components/photo/interfaces/IPhoto';
-import Slider from '@/components/slider/Slider.vue';
+// import Slider from '@/components/slider/Slider.vue';
+import ContainerComponent from '@/components/container/ContainerComponent.vue';
 
 const photos: IPhoto[] = [
   {
@@ -36,21 +37,18 @@ const photos: IPhoto[] = [
 
 <template>
   <main class="main">
-    home
     <section class="hero">
-      <div class="hero__container">
+      <ContainerComponent class="hero__container">
+        home page
         <!-- <div class="hero__slider">
           <Slider :photos="photos" photos-size="sm" />
         </div> -->
-      </div>
+      </ContainerComponent>
     </section>
   </main>
 </template>
 
 <style lang="sass" scoped>
-.main
-  @apply h-full
-
 .hero
   @apply h-full
 

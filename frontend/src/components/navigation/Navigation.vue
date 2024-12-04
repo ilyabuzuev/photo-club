@@ -20,5 +20,17 @@ const navigationItems: INavigationItem[] = navigationConfig.items;
 
 <style lang="sass" scoped>
 .navigation
-  @apply flex gap-10
+  @apply flex gap-x-32
+
+@media (max-width: 1200px)
+  .navigation
+    @apply gap-x-24
+
+@media (max-width: 1024px)
+  .navigation
+    @apply gap-x-16
+
+@media (max-width: 880px)
+  .navigation
+    @apply gap-x-10
 </style>

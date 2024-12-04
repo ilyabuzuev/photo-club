@@ -4,8 +4,14 @@ import Header from '@/components/header/Header.vue';
 </script>
 
 <template>
-  <Header />
-  <RouterView />
+  <div class="app__content">
+    <Header />
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="sass" scoped>
+.app__content
+  @apply h-dvh grid
+  grid-template-rows: max-content 1fr
+</style>

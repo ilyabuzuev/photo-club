@@ -16,7 +16,7 @@ defineProps<IMember>();
 
 <style lang="sass" scoped>
 .member
-  @apply overflow-hidden bg-white rounded-md shadow-zinc-300 transition-shadow
+  @apply overflow-hidden bg-white rounded-md shadow-neutral-300 transition-shadow
 
   &__link
     @apply block p-2

@@ -4,38 +4,31 @@ import type { IButtonProps } from './interfaces/IButtonProps';
 withDefaults(defineProps<IButtonProps>(), {
   size: 'md',
   label: '',
-  buttonStyle: 'flat',
-  bgColor: 'primary',
-  textColor: 'white',
-  borderColor: '',
+  to: '',
 });
 </script>
 
 <template>
-  <button
-    class="button"
-    :class="`button_${buttonStyle} bg_${bgColor} button_${size}`"
-  >
-    <span v-if="label" class="button__label leading-none" :class="``">{{ label }}</span>
+  <button v-if="!to" class="button rounded-md" :class="[`button_${size}`]">
+    <span v-if="label" class="button__label leading-none" :class="``">{{
+      label
+    }}</span>
   </button>
+  <router-link
+    v-else
+    class="button flex items-center rounded-md"
+    :class="[`button_${size}`]"
+    :to="to"
+  >
+    <span v-if="label">{{ label }}</span>
+  </router-link>
 </template>
 
 <style lang="sass" scoped>
 .button
-
-  &_flat
-    @apply border-none
-
-  &_outlined
-    @apply  bg-none border-2
+  @apply transition-colors
+  font-size: 1rem
 
   &_md
-    @apply px-4 py-1 rounded-md
-
-// .button.button_outlined .button__label
-
-// .button.button_flat .button__label
-
-.bg_primary
-  @apply bg-blue-500
+    @apply px-8 py-2
 </style>
