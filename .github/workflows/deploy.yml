@@ -19,7 +19,7 @@ jobs:
           npm install
           npm run build-only
           # Скопировать собранные файлы для использования в Dockerfile
-          cp -r dist ../frontend
+          cp -r dist ../frontend-dist
 
       - name: Install dependencies and build backend
         run: |
@@ -28,7 +28,7 @@ jobs:
           npx prisma generate
           npm run build
           # Скопировать готовые файлы для использования в Dockerfile
-          cp -r dist ../backend
+          cp -r dist ../backend-dist
 
       - name: Deploy application with Docker Compose
         run: |
