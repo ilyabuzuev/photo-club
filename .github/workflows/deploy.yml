@@ -31,6 +31,7 @@ jobs:
           npx prisma generate
           npm run build
           # Скопировать готовые файлы для использования в Dockerfile
+          #
           cp -r dist ../backend-dist
           cp -r prisma ../backend-dis
           cp -r Dockerfile ../backend-dist
