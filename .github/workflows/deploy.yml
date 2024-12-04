@@ -21,7 +21,7 @@ jobs:
       # - name: Install dependencies and build frontend
       - name: Copy files
         run: |
-          cp -r /home/actions-runner/_work/photo-club/photo-club /home/prj/photoclub/
+          cp -r /home/actions-runner/_work/photo-club/photo-club/* /home/prj/photoclub/
 
           # pwd
           # ls
