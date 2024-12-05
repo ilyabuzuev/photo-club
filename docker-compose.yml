@@ -26,7 +26,7 @@ services:
     #   - 8.8.4.4
     #
     environment:
-      DATABASE_URL: postgres://admin:admin@db:5432/photoclub
+      DATABASE_URL: postgres://admin:6e5AH311gavT72E2@db:5432/photoclub
     command: >
       sh -c "
       npx prisma migrate deploy &&
@@ -44,7 +44,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_PASSWORD: 6e5AH311gavT72E2
       POSTGRES_DB: photoclub
     ports:
       - "5432:5432"

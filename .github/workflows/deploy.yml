@@ -15,16 +15,16 @@ jobs:
 
       - name: Clean directory
         run: |
-          cd /home/prj/photoclub/
+          cd /home/photoclub/
           rm -rf *
 
       - name: Copy files
         run: |
-          cp -r /home/actions-runner/_work/photo-club/photo-club/* /home/prj/photoclub/
+          cp -r /home/actions-runner/_work/photo-club/photo-club/* /home/photoclub/
 
       - name: Deploy application with Docker Compose
         run: |
           # Собрать и запустить контейнеры
-          cd /home/prj/photoclub
-          docker-compose down
-          docker-compose up -d --build
+          cd /home/photoclub
+          docker compose down
+          docker compose up -d --build

@@ -5,8 +5,6 @@ import type { MembersDTO } from '@/dto/members.dto';
 import type { MemberDTO } from '@/dto/member.dto';
 import type { MemberEntity } from '@/entities/member/MemberEntity';
 
-// const api = new API();
-
 export class MembersService {
   private static URLs = {
     allMembers: '/user/all',

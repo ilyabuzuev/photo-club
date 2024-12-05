@@ -21,6 +21,7 @@ const route = useRoute();
 
 <style lang="sass" scoped>
 .header
+  @apply bg-white shadow-md shadow-neutral-200
 
   &__container
     @apply flex items-center justify-between py-2
