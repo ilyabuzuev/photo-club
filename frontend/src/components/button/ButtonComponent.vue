@@ -31,4 +31,7 @@ withDefaults(defineProps<IButtonProps>(), {
 
   &_md
     @apply px-8 py-2
+
+  &:disabled
+    @apply bg-neutral-200 text-neutral-400 cursor-not-allowed
 </style>

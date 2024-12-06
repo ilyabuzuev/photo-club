@@ -3,5 +3,6 @@ import type { ElementSize } from '@/types/ElementSize';
 
 export interface ISliderProps {
   photos: IPhoto[];
-  photosSize: ElementSize;
+  photosSize?: ElementSize;
+  autoPlay?: boolean;
 }

@@ -1,7 +1,7 @@
 import type { IValidationRules } from '@/interfaces/IValidationRules';
 
 export class ValidationService {
-  private readonly errors: { errorMessage: string }[] = [];
+  // private errors: { message: string }[] = [];
 
   private checkAvailability(text: string): boolean {
     return Boolean(text.length);
@@ -15,26 +15,25 @@ export class ValidationService {
     return text.length > maxLength;
   }
 
-  public validate(text: string, rules: IValidationRules): true | { errorMessage: string }[] {
-    if (rules.isRequired && !this.checkAvailability(text)) {
-      this.errors.push({ errorMessage: 'Данное поле обязательно для заполнения' });
-      // return { errorMessage: 'Данное поле обязательно для заполнения' };
+  public validate(text: string, rules: IValidationRules): true | { message: string } {
+    // this.errors = [];
+
+    if (rules.isRequired && this.checkAvailability(text) === false) {
+      return { message: 'Данное поле обязательно для заполнения' };
     }
 
-    if (rules.minLength && !this.checkMinLength(text, rules.minLength)) {
-      this.errors.push({
-        errorMessage: `Минимальная длинна поля должная быть больше ${rules.minLength}`,
-      });
-      // return { errorMessage: `Минимальная длинна поля должная быть больше ${rules.minLength}` };
+    if (rules.minLength && this.checkMinLength(text, rules.minLength) === true) {
+      return {
+        message: `Длина поля должная быть больше ${rules.minLength}`,
+      };
     }
 
-    if (rules.maxLength && !this.checkMaxLength(text, rules.maxLength)) {
-      this.errors.push({
-        errorMessage: `Минимальная длинна поля должная быть меньше ${rules.maxLength}`,
-      });
-      // return { errorMessage: `Минимальная длинна поля должная быть меньше ${rules.maxLength}` };
+    if (rules.maxLength && !this.checkMaxLength(text, rules.maxLength) === false) {
+      return {
+        message: `Длина поля должная быть меньше ${rules.maxLength}`,
+      };
     }
 
-    return this.errors.length > 0 ? this.errors : true;
+    return true;
   }
 }

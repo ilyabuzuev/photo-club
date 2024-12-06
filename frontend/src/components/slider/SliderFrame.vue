@@ -19,8 +19,8 @@ defineProps<ISliderFrameProps>();
     </div>
     <div class="relative">
       <PhotoFilmDividerFrame class="absolute left-0" />
-      <!-- <Photo :alt="photo.alt" :src="photo.src" :size="size" /> -->
-      <div :style="{width: '360px', height: '240px', backgroundColor: '#6cf1a0' }"></div>
+      <Photo :alt="photo.alt" :src="photo.src" :size="size" />
+      <!-- <div :style="{width: '360px', height: '240px', backgroundColor: '#6cf1a0' }"></div> -->
       <PhotoFilmDividerFrame class="absolute top-0 right-0" />
     </div>
     <div class="flex">

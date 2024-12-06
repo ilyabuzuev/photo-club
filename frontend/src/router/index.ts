@@ -16,13 +16,25 @@ const router = createRouter({
     {
       path: '/members',
       name: 'members',
-      component: () => import('@/views/MembersView.vue'),
+      // component: () => import('@/views/MembersView.vue'),
+      children: [
+        {
+          path: '',
+          name: 'membersOverview',
+          component: () => import('@/views/MembersView.vue'),
+        },
+        {
+          path: ':id',
+          name: 'member',
+          component: () => import('@/views/MemberView.vue'),
+        },
+      ],
     },
-    {
-      path: '/members/:email',
-      name: 'member',
-      component: () => import('@/views/MemberView.vue'),
-    },
+    // {
+    //   path: '/members/:id',
+    //   name: 'member',
+    //   component: () => import('@/views/MemberView.vue'),
+    // },
   ],
 });
 

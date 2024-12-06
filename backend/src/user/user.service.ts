@@ -19,13 +19,13 @@ export class UserService {
   async getById(id: string) {
     return this.prisma.user.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true },
+      select: { id: true, firstname: true, lastname: true, email: true },
     });
   }
 
   async getAll() {
     return this.prisma.user.findMany({
-      select: { id: true, name: true, email: true },
+      select: { id: true, firstname: true, lastname: true, email: true },
     });
   }
 }

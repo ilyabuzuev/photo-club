@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { MembersService } from '@/services/members-service/MembersService';
 import { MemberEntity } from '@/entities/member/MemberEntity';
-import Member from '@/components/member/Member.vue';
+import MemberComponent from '@/components/member/MemberComponent.vue';
 import ContainerComponent from '@/components/container/ContainerComponent.vue';
 
 const members = ref<MemberEntity[]>();
@@ -10,6 +10,9 @@ const membersService = new MembersService();
 
 onMounted(async () => {
   members.value = await membersService.getAll();
+
+  console.log(members.value);
+
 });
 </script>
 
@@ -18,11 +21,12 @@ onMounted(async () => {
     <section class="members">
       <ContainerComponent class="members__container">
         <ul class="members__list" v-if="members">
-          <Member
+          <MemberComponent
             v-for="(member, index) in members"
             :key="index"
             :id="member.id"
-            :name="member.name"
+            :firstname="member.firstname"
+            :lastname="member.lastname"
             :email="member.email"
           />
         </ul>

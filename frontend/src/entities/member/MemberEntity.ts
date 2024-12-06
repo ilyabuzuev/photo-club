@@ -2,12 +2,14 @@ import type { IMemberEntity } from './interfaces/IMemberEntity';
 
 export class MemberEntity {
   public readonly id: string;
-  public readonly name: string;
+  public readonly firstname: string;
+  public readonly lastname: string;
   public readonly email: string;
 
-  constructor({ id, name, email }: IMemberEntity) {
+  constructor({ id, firstname, lastname, email }: IMemberEntity) {
     this.id = id;
-    this.name = name;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.email = email;
   }
 }

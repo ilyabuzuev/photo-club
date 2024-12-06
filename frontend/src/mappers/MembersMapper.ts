@@ -5,7 +5,8 @@ export function membersMapper(dto: MembersDTO[]): MemberEntity[] {
   const members: MemberEntity[] = dto.map(member => {
     return new MemberEntity({
       id: member.id,
-      name: member.name,
+      firstname: member.firstname,
+      lastname: member.lastname,
       email: member.email,
     });
   });

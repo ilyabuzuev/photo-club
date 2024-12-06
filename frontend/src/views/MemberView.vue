@@ -3,7 +3,8 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { MemberEntity } from '@/entities/member/MemberEntity';
 import { MembersService } from '@/services/members-service/MembersService';
-import Member from '@/components/member/Member.vue';
+import MemberComponent from '@/components/member/MemberComponent.vue';
+import ContainerComponent from '@/components/container/ContainerComponent.vue';
 
 const member = ref<MemberEntity>();
 const membersService = new MembersService();
@@ -15,10 +16,22 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>member view</div>
   <main v-if="member">
-    <div class="container">
-      <Member :id="member.id" :name="member.name" :email="member.email" />
-    </div>
+    <section class="member">
+      <ContainerComponent class="member__container">
+        h
+        <MemberComponent
+          :id="member.id"
+          :firstname="member.firstname"
+          :lastname="member.lastname"
+          :email="member.email"
+        />
+      </ContainerComponent>
+    </section>
   </main>
 </template>
+
+<style lang="sass" scoped>
+.member
+  @apply flex items-center h-full
+</style>

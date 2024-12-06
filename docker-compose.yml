@@ -29,7 +29,7 @@ services:
       DATABASE_URL: postgres://admin:6e5AH311gavT72E2@db:5432/photoclub
     command: >
       sh -c "
-      npx prisma migrate deploy &&
+      npx prisma migrate dev &&
       npm run start:prod"
     ports:
       - "3000:3000"

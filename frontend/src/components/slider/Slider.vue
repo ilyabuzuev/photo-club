@@ -5,7 +5,10 @@ import SliderFrame from './SliderFrame.vue';
 import type { ISliderProps } from './interfaces/ISliderProps';
 import type { IPhoto } from '../photo/interfaces/IPhoto';
 
-const props = defineProps<ISliderProps>();
+const props = withDefaults(defineProps<ISliderProps>(), {
+  autoPlay: true,
+  photosSize: 'sm',
+});
 
 console.log(props.photos);
 
@@ -103,9 +106,11 @@ function prevPhoto() {
   sliderList.value!.style.transition = 'left .5s ease';
 }
 
-// setInterval(() => {
-//   nextPhoto();
-// }, 1000);
+if (props.autoPlay) {
+  setInterval(() => {
+    nextPhoto();
+  }, 3000);
+}
 
 // const list = ['1', '2', '3'];
 
@@ -114,7 +119,7 @@ function prevPhoto() {
 
 <template>
   <div class="slider">
-    <button @click="prevPhoto" :disabled="isSliding">prev</button>
+    <button v-if="!autoPlay" @click="prevPhoto" :disabled="isSliding">prev</button>
     <div class="slider__frames">
       <ul
         class="slider__list"
@@ -155,7 +160,7 @@ function prevPhoto() {
       </div> -->
     </div>
 
-    <button @click="nextPhoto" :disabled="isSliding">next</button>
+    <button v-if="!autoPlay" @click="nextPhoto" :disabled="isSliding">next</button>
   </div>
 </template>
 

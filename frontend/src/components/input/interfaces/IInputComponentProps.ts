@@ -3,5 +3,6 @@ import type { ElementSize } from '@/types/ElementSize';
 
 export interface IInputComponentProps {
   size?: ElementSize;
-  rules: IValidationRules;
+  rules?: IValidationRules;
+  type?: 'text' | 'password';
 }

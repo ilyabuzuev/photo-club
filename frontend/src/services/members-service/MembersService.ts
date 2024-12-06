@@ -25,6 +25,9 @@ export class MembersService {
         throw new Error('Ошибка при загрузке участников');
       }
 
+      console.log(response.data);
+
+
       return membersMapper(response.data);
     } catch (error) {
       throw new Error(`ошибка ${error}`);

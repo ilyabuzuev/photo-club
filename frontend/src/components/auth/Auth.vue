@@ -7,7 +7,7 @@ import ButtonComponent from '../button/ButtonComponent.vue';
   <div class="auth flex gap-2">
     <ButtonComponent
       class="bg-neutral-900 text-white hover:bg-neutral-700"
-      label="Стать членом клуба"
+      label="Войти"
       size="md"
       to="/register"
     />

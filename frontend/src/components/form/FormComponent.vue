@@ -11,7 +11,7 @@ withDefaults(defineProps<IFormComponentProps>(), {
     <div>
       <slot name="header" />
     </div>
-    <div class="flex flex-col" :class="`form_${spacing}`">
+    <div class="flex flex-col gap-2">
       <slot name="content" />
     </div>
     <div class="flex justify-center">
@@ -24,17 +24,17 @@ withDefaults(defineProps<IFormComponentProps>(), {
 .form
 
   &_xs
-    @apply gap-1
-
-  &_sm
-    @apply gap-2
-
-  &_md
-    @apply gap-3
-
-  &_lg
     @apply gap-4
 
+  &_sm
+    @apply gap-6
+
+  &_md
+    @apply gap-10
+
+  &_lg
+    @apply gap-12
+
   &_xl
-    @apply gap-5
+    @apply gap-14
 </style>

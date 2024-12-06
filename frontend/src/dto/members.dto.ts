@@ -1,5 +1,6 @@
 export interface MembersDTO {
   id: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
 }

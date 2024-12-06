@@ -4,7 +4,8 @@ import { MemberEntity } from '@/entities/member/MemberEntity';
 export function memberMapper(dto: MemberDTO): MemberEntity {
   return new MemberEntity({
     id: dto.id,
-    name: dto.name,
+    firstname: dto.firstname,
+    lastname: dto.lastname,
     email: dto.email,
   });
 }
