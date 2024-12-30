@@ -3,6 +3,6 @@ export interface IUser {
   firstname: string;
   lastname: string;
   email: string;
-  // password: string;
-  token: string;
+  accessToken: string;
+  refreshToken: string;
 }

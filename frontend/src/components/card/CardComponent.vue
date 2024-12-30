@@ -3,18 +3,19 @@ import type { ICardComponentProps } from './interfaces/ICardComponentProps';
 
 withDefaults(defineProps<ICardComponentProps>(), {
   paddings: 'md',
+  flat: false,
 });
 </script>
 
 <template>
-  <div class="card" :class="`card_${paddings}`">
+  <div class="card" :class="[`card_${paddings}`, { 'bg-white': !flat }]">
     <slot />
   </div>
 </template>
 
 <style lang="sass" scoped>
 .card
-  @apply bg-white shadow-md shadow-neutral-300 rounded-xl
+  @apply shadow-md shadow-neutral-300 rounded-xl
 
   &_xs
     @apply p-2

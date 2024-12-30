@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDTO } from './dto/CreateUserDTO';
+import { LoginUserDTO } from './dto/LoginUserDTO';
 
 @Controller('api/user')
 export class UserController {
@@ -8,7 +9,12 @@ export class UserController {
 
   @Post('create')
   create(@Body() user: CreateUserDTO) {
-    this.userService.create(user);
+    return this.userService.create(user);
+  }
+
+  @Post('login')
+  login(@Body() user: LoginUserDTO) {
+    return this.userService.login(user);
   }
 
   @Get('all')
@@ -16,8 +22,13 @@ export class UserController {
     return this.userService.getAll();
   }
 
+  @Get('current')
+  getCurrentUser(@Req() req) {
+    return this.userService.getCurrentUser(req.body);
+  }
+
   @Get(':id')
-  cgetByEmail(@Param('id') id: string) {
+  getByEmail(@Param('id') id: string) {
     return this.userService.getById(id);
   }
 }

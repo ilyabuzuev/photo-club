@@ -18,11 +18,10 @@ const isError = computed(() => validateResult.value !== undefined && validateRes
 
 const props = withDefaults(defineProps<IInputComponentProps>(), {
   size: 'md',
-  type: 'text'
+  type: 'text',
 });
 
 console.log(model.value);
-
 
 function validate() {
   isFocused.value = false;
@@ -57,10 +56,13 @@ onMounted(() => {
       v-model="model"
       @focusin="isFocused = true"
       @focusout="validate"
-      @input="validate"
       @update:model-value="update"
-      class="input w-full border-1 border-neutral-300 rounded-md focus:outline-none"
-      :class="[{ input_focused: isFocused }, `input_${size}`, { 'border-red-500': isError }]"
+      class="input w-full border-1 rounded-md focus:outline-none"
+      :class="[
+        { input_focused: isFocused },
+        `input_${size}`,
+        isError ? 'border-red-500' : 'border-neutral-300',
+      ]"
       :type="type"
     />
     <div v-if="isError" class="mt-1 text-xs text-red-500">
